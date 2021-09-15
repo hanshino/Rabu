@@ -1,24 +1,27 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { createTheme, ThemeProvider } from "@material-ui/core/styles";
-import { grey } from "@material-ui/core/colors";
 import Navbar from "./containers/Navbar";
 import Dashboard from "./pages/Dashboard";
-import DarkTheme from "./theme";
+import { useSelector } from "react-redux";
+import { cyan } from "@material-ui/core/colors";
 
 const App = () => {
-  const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
+  const appTheme = useSelector(state => state.get("theme"));
+  const darkMode = appTheme.get("theme") === "dark";
+
   const theme = React.useMemo(
     () =>
-      prefersDarkMode
-        ? DarkTheme
-        : createTheme({
-            palette: {
-              type: "light",
-            },
-          }),
-    [prefersDarkMode]
+      createTheme({
+        palette: {
+          type: darkMode ? "dark" : "light",
+          primary: {
+            main: "#80deea",
+          },
+          secondary: cyan,
+        },
+      }),
+    [darkMode]
   );
 
   return (
