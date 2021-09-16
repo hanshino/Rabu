@@ -1,15 +1,20 @@
-import Immutable from "immutable";
-
 /**
  * 主題狀態
  */
-export const ThemeState = Immutable.fromJS({
+export const ThemeState = {
   theme: "",
-});
+};
 
 /**
  * 導覽功能列狀態
  */
-export const NavState = Immutable.fromJS({
+export const NavState = {
   drawerOpen: false,
-});
+};
+
+/**
+ * 所有共鬥資訊狀態
+ */
+export const MultiBossState = {
+  bosses: [],
+};

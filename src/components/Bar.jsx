@@ -39,7 +39,7 @@ const useStyles = makeStyles(theme => ({
 const Bar = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
-  const appTheme = useSelector(state => state.get("theme"));
+  const appTheme = useSelector(state => state.theme);
   const { t } = useTranslation();
 
   return (
@@ -58,7 +58,7 @@ const Bar = () => {
           {t("app.title")}
         </Typography>
         <div className={classes.rightButtons}>
-          {appTheme.get("theme") === "dark" ? (
+          {appTheme.theme === "dark" ? (
             <IconButton
               edge="end"
               color="inherit"

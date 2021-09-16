@@ -1,5 +1,6 @@
-import { combineReducers } from "redux-immutable";
+import { combineReducers } from "redux";
 import theme from "./theme";
 import nav from "./nav";
+import multiboss from "./multiboss";
 
-export default combineReducers({ theme, nav });
+export default combineReducers({ theme, nav, multiboss });

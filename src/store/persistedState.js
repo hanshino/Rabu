@@ -1,5 +1,3 @@
-import Immutable from "immutable";
-
-export const theme = Immutable.fromJS({
+export const theme = {
   theme: window.localStorage.getItem("theme"),
-});
+};

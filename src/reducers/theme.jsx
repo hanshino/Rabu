@@ -4,8 +4,8 @@ import { ThemeState } from "../constants/models";
 
 const themeReducer = handleActions(
   {
-    [actionTypes.CHANGE_DARK]: state => state.set("theme", "dark"),
-    [actionTypes.CHANGE_LIGHT]: state => state.set("theme", "light"),
+    [actionTypes.CHANGE_DARK]: () => ({ theme: "dark" }),
+    [actionTypes.CHANGE_LIGHT]: () => ({ theme: "light" }),
   },
   ThemeState
 );

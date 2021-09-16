@@ -7,8 +7,8 @@ import { useSelector } from "react-redux";
 import { cyan } from "@material-ui/core/colors";
 
 const App = () => {
-  const appTheme = useSelector(state => state.get("theme"));
-  const darkMode = appTheme.get("theme") === "dark";
+  const appTheme = useSelector(state => state.theme);
+  const darkMode = appTheme.theme === "dark";
 
   const theme = React.useMemo(
     () =>
@@ -27,10 +27,11 @@ const App = () => {
   return (
     <Router>
       <ThemeProvider theme={theme}>
-        <Navbar />
-        <Switch>
-          <Route path="/dashboard" component={Dashboard} />
-        </Switch>
+        <Navbar>
+          <Switch>
+            <Route path="/dashboard" component={Dashboard} />
+          </Switch>
+        </Navbar>
       </ThemeProvider>
     </Router>
   );

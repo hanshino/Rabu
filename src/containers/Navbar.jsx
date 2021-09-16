@@ -27,7 +27,13 @@ const useStyles = makeStyles(theme => ({
   },
   content: {
     flexGrow: 1,
-    padding: theme.spacing(3),
+    paddingTop: 80,
+    margin: "0 auto",
+    maxWidth: "100%",
+    flex: "1 1 100%",
+    [theme.breakpoints.up("lg")]: {
+      maxWidth: theme.breakpoints.values.lg,
+    },
   },
 }));
 
@@ -35,9 +41,9 @@ const Navbar = props => {
   const { window } = props;
   const classes = useStyles();
   const theme = useTheme();
-  const nav = useSelector(state => state.get("nav"));
+  const nav = useSelector(state => state.nav);
   const dispatch = useDispatch();
-  const drawerOpen = nav.get("drawerOpen");
+  const { drawerOpen } = nav;
   const container =
     window !== undefined ? () => window().document.body : undefined;
 
@@ -76,6 +82,7 @@ const Navbar = props => {
           </Drawer>
         </Hidden>
       </nav>
+      <main className={classes.content}>{props.children}</main>
     </div>
   );
 };
