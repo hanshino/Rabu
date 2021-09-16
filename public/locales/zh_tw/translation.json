@@ -5,5 +5,17 @@
   },
   "navbar": {
     "home": "首頁"
+  },
+  "assets": {
+    "owl": "/assets/multi_battle/multi1_1_1.png",
+    "undead": "/assets/multi_battle/multi1_3_1.png",
+    "rock": "/assets/multi_battle/multi1_6_1.png",
+    "squid": "/assets/multi_battle/multi1_9_1.png",
+    "crab": "/assets/multi_battle/multi1_10_1.png",
+    "curse": "/assets/multi_battle/multi1_12_1.png",
+    "tiger": "/assets/multi_battle/multi1_14_1.png",
+    "robot": "/assets/multi_battle/multi1_16_1.png",
+    "adomi": "/assets/multi_battle/multi1_17_1.png",
+    "snake": "/assets/multi_battle/multi1_20_1.png"
   }
 }
