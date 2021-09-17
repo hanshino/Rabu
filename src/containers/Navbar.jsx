@@ -1,46 +1,18 @@
 import React from "react";
 import DrawerItem from "../components/Drawer";
 import Bar from "../components/Bar";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import Hidden from "@material-ui/core/Hidden";
-import Drawer from "@material-ui/core/Drawer";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import CssBaseline from "@mui/material/CssBaseline";
+import Hidden from "@mui/material/Hidden";
+import Drawer from "@mui/material/Drawer";
 import { useSelector, useDispatch } from "react-redux";
 import { toggleBar } from "../actions";
 
 const drawerWidth = 240;
-const useStyles = makeStyles(theme => ({
-  root: {
-    display: "flex",
-    flexGrow: 1,
-  },
-  drawer: {
-    [theme.breakpoints.up("sm")]: {
-      width: drawerWidth,
-      flexShrink: 0,
-    },
-  },
-  // necessary for content to be below app bar
-  toolbar: theme.mixins.toolbar,
-  drawerPaper: {
-    width: drawerWidth,
-  },
-  content: {
-    flexGrow: 1,
-    paddingTop: 80,
-    margin: "0 auto",
-    maxWidth: "100%",
-    flex: "1 1 100%",
-    [theme.breakpoints.up("lg")]: {
-      maxWidth: theme.breakpoints.values.lg,
-    },
-  },
-}));
 
 const Navbar = props => {
   const { window } = props;
-  const classes = useStyles();
-  const theme = useTheme();
   const nav = useSelector(state => state.nav);
   const dispatch = useDispatch();
   const { drawerOpen } = nav;
@@ -48,32 +20,41 @@ const Navbar = props => {
     window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <div className={classes.root}>
+    <Box sx={{ display: "flex" }}>
       <CssBaseline />
       <Bar />
-      <nav className={classes.drawer} aria-label="mailbox folders">
-        {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
-        <Hidden smUp implementation="css">
-          <Drawer
-            container={container}
-            variant="temporary"
-            anchor={theme.direction === "rtl" ? "right" : "left"}
-            open={drawerOpen}
-            onClose={() => dispatch(toggleBar())}
-            classes={{
-              paper: classes.drawerPaper,
-            }}
-            ModalProps={{
-              keepMounted: true, // Better open performance on mobile.
-            }}
-          >
-            <DrawerItem />
-          </Drawer>
-        </Hidden>
+      <Box
+        component="nav"
+        sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
+        aria-label="mailbox folders"
+      >
+        <Drawer
+          container={container}
+          variant="temporary"
+          open={drawerOpen}
+          onClose={() => dispatch(toggleBar())}
+          sx={{
+            display: { xs: "block", sm: "none" },
+            "& .MuiDrawer-paper": {
+              boxSizing: "border-box",
+              width: drawerWidth,
+            },
+          }}
+          ModalProps={{
+            keepMounted: true, // Better open performance on mobile.
+          }}
+        >
+          <DrawerItem />
+        </Drawer>
+
         <Hidden xsDown implementation="css">
           <Drawer
-            classes={{
-              paper: classes.drawerPaper,
+            sx={{
+              display: { xs: "none", sm: "block" },
+              "& .MuiDrawer-paper": {
+                boxSizing: "border-box",
+                width: drawerWidth,
+              },
             }}
             variant="permanent"
             open
@@ -81,9 +62,12 @@ const Navbar = props => {
             <DrawerItem />
           </Drawer>
         </Hidden>
-      </nav>
-      <main className={classes.content}>{props.children}</main>
-    </div>
+      </Box>
+      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+        <Toolbar />
+        {props.children}
+      </Box>
+    </Box>
   );
 };
 

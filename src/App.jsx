@@ -1,10 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { createTheme, ThemeProvider } from "@material-ui/core/styles";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Navbar from "./containers/Navbar";
 import Dashboard from "./pages/Dashboard";
 import { useSelector } from "react-redux";
-import { cyan } from "@material-ui/core/colors";
+import { cyan } from "@mui/material/colors";
 
 const App = () => {
   const appTheme = useSelector(state => state.theme);
@@ -14,7 +14,7 @@ const App = () => {
     () =>
       createTheme({
         palette: {
-          type: darkMode ? "dark" : "light",
+          mode: darkMode ? "dark" : "light",
           primary: {
             main: "#80deea",
           },

@@ -5,8 +5,8 @@ import {
   ListItemIcon,
   ListItemText,
   ListSubheader,
-} from "@material-ui/core";
-import HomeIcon from "@material-ui/icons/Home";
+} from "@mui/material";
+import HomeIcon from "@mui/icons-material/Home";
 import { useTranslation } from "react-i18next";
 
 const Drawer = () => {
