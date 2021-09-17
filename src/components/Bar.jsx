@@ -40,7 +40,7 @@ const Bar = () => {
         <Typography variant="h6" noWrap component="div" sx={{ flexGrow: 1 }}>
           {t("app.title")}
         </Typography>
-        <Box component="nav" sx={{ "& > *": { m: 1 } }}>
+        <Box component="nav" sx={{ ".MuiIconButton-root": { m: 1 } }}>
           {appTheme.theme === "dark" ? (
             <IconButton
               edge="end"

@@ -17,5 +17,51 @@
     "robot": "/assets/multi_battle/multi1_16_1.png",
     "adomi": "/assets/multi_battle/multi1_17_1.png",
     "snake": "/assets/multi_battle/multi1_20_1.png"
+  },
+  "boss": {
+    "owl": {
+      "name": "不死貓頭鷹"
+    },
+    "undead": {
+      "name": "不死骷髏王"
+    },
+    "rock": {
+      "name": "石巨人"
+    },
+    "squid": {
+      "name": "烏賊"
+    },
+    "crab": {
+      "name": "寄居蟹"
+    },
+    "curse": {
+      "name": "詛咒王"
+    },
+    "tiger": {
+      "name": "小老虎"
+    },
+    "robot": {
+      "name": "機器人"
+    },
+    "adomi": {
+      "name": "亞多米"
+    },
+    "snake": {
+      "name": "蛇"
+    }
+  },
+  "multiboss": {
+    "level": "初級",
+    "level_1": "中級",
+    "level_2": "高級",
+    "level_3": "高級+",
+    "level_4": "超級"
+  },
+  "view": {
+    "dashboard": {
+      "number": "房號",
+      "level": "等級",
+      "note": "備註"
+    }
   }
 }
