@@ -1,35 +1,49 @@
 import React, { useMemo } from "react";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
-import { DataGrid } from "@mui/x-data-grid";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
 
 const RoomList = props => {
   const { rooms } = props;
   const { t, i18n } = useTranslation();
 
-  const cols = useMemo(
-    () =>
-      [
-        t(`view.dashboard.number`),
-        t(`view.dashboard.level`),
-        t(`view.dashboard.note`),
-      ].map(col => ({ field: col })),
-    [i18n.language]
-  );
-
   const rows = useMemo(
     () =>
-      rooms.map((room, idx) => ({
-        id: idx + 1,
-        ...room,
-        level: t("multiboss.level", { context: room.level }),
-      })),
-    [rooms]
+      rooms.map((room, idx) => (
+        <TableRow
+          key={idx}
+          sx={{
+            "&:last-child td, &:last-child th": { border: 0 },
+          }}
+        >
+          <TableCell>{room.number}</TableCell>
+          <TableCell>{room.note}</TableCell>
+          <TableCell>{t(`multiboss.level`, { context: room.level })}</TableCell>
+        </TableRow>
+      )),
+    [rooms, i18n.language]
   );
 
-  console.log(cols, rows);
-
-  return <DataGrid columns={cols} rows={rows} hideFooterPagination />;
+  return (
+    <TableContainer component={Paper}>
+      <Table>
+        <TableHead>
+          <TableRow>
+            <TableCell>{t("view.dashboard.number")}</TableCell>
+            <TableCell>{t("view.dashboard.note")}</TableCell>
+            <TableCell>{t("view.dashboard.level")}</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>{rows}</TableBody>
+      </Table>
+    </TableContainer>
+  );
 };
 
 RoomList.propTypes = {

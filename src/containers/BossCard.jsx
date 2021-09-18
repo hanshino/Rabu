@@ -9,15 +9,15 @@ import { useTranslation } from "react-i18next";
 import RoomList from "../components/RoomList";
 
 const Avatar = styled(MuiAvatar)(({ theme }) => ({
-  width: theme.spacing(12),
-  height: theme.spacing(12),
+  width: theme.spacing(20),
+  height: theme.spacing(14),
 }));
 
 const BossCard = props => {
   const { t } = useTranslation();
   const bossPath = t(`assets.${props.boss}`);
   return (
-    <Grid container componenet={Paper} spacing={1}>
+    <Grid container componenet={Paper} sx={{ "& > .MuiGrid-item": { p: 0.5 } }}>
       <Grid item>
         <Avatar
           variant="rounded"

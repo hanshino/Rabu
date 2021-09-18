@@ -4,12 +4,11 @@ import Bar from "../components/Bar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import CssBaseline from "@mui/material/CssBaseline";
-import Hidden from "@mui/material/Hidden";
 import Drawer from "@mui/material/Drawer";
 import { useSelector, useDispatch } from "react-redux";
 import { toggleBar } from "../actions";
 
-const drawerWidth = 240;
+const drawerWidth = 220;
 
 const Navbar = props => {
   const { window } = props;
@@ -26,13 +25,15 @@ const Navbar = props => {
       <Box
         component="nav"
         sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
-        aria-label="mailbox folders"
       >
         <Drawer
           container={container}
           variant="temporary"
           open={drawerOpen}
           onClose={() => dispatch(toggleBar())}
+          ModalProps={{
+            keepMounted: true, // Better open performance on mobile.
+          }}
           sx={{
             display: { xs: "block", sm: "none" },
             "& .MuiDrawer-paper": {
@@ -40,28 +41,22 @@ const Navbar = props => {
               width: drawerWidth,
             },
           }}
-          ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
-          }}
         >
           <DrawerItem />
         </Drawer>
-
-        <Hidden xsDown implementation="css">
-          <Drawer
-            sx={{
-              display: { xs: "none", sm: "block" },
-              "& .MuiDrawer-paper": {
-                boxSizing: "border-box",
-                width: drawerWidth,
-              },
-            }}
-            variant="permanent"
-            open
-          >
-            <DrawerItem />
-          </Drawer>
-        </Hidden>
+        <Drawer
+          variant="permanent"
+          sx={{
+            display: { xs: "none", sm: "block" },
+            "& .MuiDrawer-paper": {
+              boxSizing: "border-box",
+              width: drawerWidth,
+            },
+          }}
+          open
+        >
+          <DrawerItem />
+        </Drawer>
       </Box>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <Toolbar />

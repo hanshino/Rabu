@@ -12,7 +12,7 @@ import Brightness7Icon from "@mui/icons-material/Brightness7";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import GitHubIcon from "@mui/icons-material/GitHub";
 
-const drawerWidth = 240;
+const drawerWidth = 220;
 
 const Bar = () => {
   const dispatch = useDispatch();
@@ -58,7 +58,12 @@ const Bar = () => {
               <Brightness4Icon />
             </IconButton>
           )}
-          <IconButton edge="end" color="inherit">
+          <IconButton
+            edge="end"
+            color="inherit"
+            component="a"
+            href={t("sites.github")}
+          >
             <GitHubIcon />
           </IconButton>
         </Box>

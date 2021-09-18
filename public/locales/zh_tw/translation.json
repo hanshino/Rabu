@@ -4,7 +4,8 @@
     "title": "彈射世界"
   },
   "navbar": {
-    "home": "首頁"
+    "home": "首頁",
+    "dashboard": "揪團"
   },
   "assets": {
     "owl": "/assets/multi_battle/multi1_1_1.png",
@@ -63,5 +64,8 @@
       "level": "等級",
       "note": "備註"
     }
+  },
+  "sites": {
+    "github": "https://github.com/hanshino/Rabu"
   }
 }
