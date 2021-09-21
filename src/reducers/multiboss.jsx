@@ -2,9 +2,9 @@ import * as actionTypes from "../constants/actionTypes";
 import { handleActions } from "redux-actions";
 import { MultiBossState } from "../constants/models";
 
-const navReducer = handleActions(
+const multibossReducer = handleActions(
   {
-    [actionTypes.ADD_NEW_ROOM]: (state, payload) => {
+    [actionTypes.ADD_NEW_ROOM]: (state, { payload }) => {
       let { boss, number, note } = payload;
       const { bosses } = { ...state };
       let target = bosses.findIndex(data => data.boss === boss);
@@ -23,4 +23,4 @@ const navReducer = handleActions(
   MultiBossState
 );
 
-export default navReducer;
+export default multibossReducer;
