@@ -1,0 +1,54 @@
+{
+  "available": [
+    {
+      "name": "owl",
+      "levels": [1],
+      "tags": ["common"]
+    },
+    {
+      "name": "undead",
+      "levels": [1, 2, 3, 4],
+      "tags": ["common"]
+    },
+    {
+      "name": "rock",
+      "levels": [1, 2, 3, 4],
+      "tags": ["common"]
+    },
+    {
+      "name": "squid",
+      "levels": [1, 2],
+      "tags": ["common"]
+    },
+    {
+      "name": "crab",
+      "levels": [1, 2, 3, 4],
+      "tags": ["common"]
+    },
+    {
+      "name": "curse",
+      "levels": [1, 2, 3, 4],
+      "tags": ["common"]
+    },
+    {
+      "name": "tiger",
+      "levels": [1, 2, 3, 4],
+      "tags": ["common"]
+    },
+    {
+      "name": "robot",
+      "levels": [1, 2],
+      "tags": ["common"]
+    },
+    {
+      "name": "adomi",
+      "levels": [1, 2],
+      "tags": ["common"]
+    },
+    {
+      "name": "snake",
+      "levels": [1, 2],
+      "tags": ["common"]
+    }
+  ]
+}

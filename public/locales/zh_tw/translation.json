@@ -59,13 +59,43 @@
     "level_4": "超級"
   },
   "view": {
+    "common": {
+      "next": "下一步",
+      "previous": "上一步",
+      "none": "無",
+      "finish": "完成"
+    },
     "dashboard": {
       "number": "房號",
       "level": "等級",
+      "note": "備註"
+    },
+    "multiboss": {
+      "step_1": "請選擇關卡",
+      "step_2": "請輸入房號",
+      "step_3": "還有其他想說的嗎？",
+      "step_4": "確認填寫無誤！",
+      "create": {
+        "next": "$t(view.common.next)",
+        "previous": "$t(view.common.previous)",
+        "cnext": "下一關",
+        "cback": "上一關"
+      },
+      "level": "難度",
+      "stage": "關卡",
+      "number": "房號",
       "note": "備註"
     }
   },
   "sites": {
     "github": "https://github.com/hanshino/Rabu"
+  },
+  "error": {
+    "room": {
+      "number": "房號必須為6個數字"
+    }
+  },
+  "helper": {
+    "perfect": "完美"
   }
 }
